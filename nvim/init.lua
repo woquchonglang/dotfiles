@@ -3,7 +3,7 @@ require("config.lazy")
 
 if vim.g.neovide then
   -- Put anything you want to happen only in Neovide here
-  vim.o.guifont = "JetBrainsMono Nerd Font:h10"
+  vim.o.guifont = "JetBrainsMono Nerd Font:h12"
   -- 没有空闲
   vim.g.neovide_no_idle = true
   -- 退出需要确认
@@ -27,7 +27,14 @@ if vim.g.neovide then
   -- 空闲刷新率
   vim.g.neovide_refresh_rate_idle = free_fps
   -- 透明度
-  vim.g.neovide_transparency = 0.85
+  vim.g.neovide_transparency = 0.9
   -- 未聚焦时光标轮廓宽度
   vim.g.neovide_cursor_unfocused_outline_width = 0.125
+  -- 窗口模糊
+  vim.g.neovide_window_blurred = true
+
+  vim.g.neovide_floating_blur_amount_x = 2.0
+  vim.g.neovide_floating_blur_amount_y = 2.0
+  --键入时隐藏鼠标
+  vim.g.neovide_hide_mouse_when_typing = true
 end

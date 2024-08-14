@@ -21,7 +21,7 @@ return {
           ) or require("lspconfig.util").find_git_ancestor(fname)
         end,
         capabilities = {
-          offsetEncoding = { "utf-16" },
+          offsetEncoding = { "utf-8" },
         },
         cmd = {
           "clangd",
@@ -32,7 +32,7 @@ return {
           "--function-arg-placeholders",
           "--fallback-style=llvm",
           "--compile-commands-dir=cmake-build-debug",
-          "--query-driver=/usr/bin/arm-none-eabi-gcc",
+          "--query-driver=/opt/gcc-arm-none-eabi-10.3-2021.10-x86_64-linux/gcc-arm-none-eabi-10.3-2021.10/bin/arm-none-eabi-gcc",
         },
         init_options = {
           usePlaceholders = true,
