@@ -1,5 +1,23 @@
 -- bootstrap lazy.nvim, LazyVim and your plugins
 require("config.lazy")
+--
+-- require("glow").setup({
+--   style = "dracula",
+--   width = 120,
+-- })
+--
+local dap_cortex_debug = require("dap-cortex-debug")
+require("dap").configurations.c = {
+  dap_cortex_debug.openocd_config({
+    name = "neovim_cortex_debug",
+    cwd = "${workspaceFolder}",
+    executable = "${workspaceFolder}/cmake-build-debug/board_c.elf",
+    -- configFiles = { "${workspaceFolder}/build/openocd/connect.cfg" },
+    gdbTarget = "localhost:3333",
+    rttConfig = dap_cortex_debug.rtt_config(0),
+    showDevDebugOutput = false,
+  }),
+}
 
 if vim.g.neovide then
   -- Put anything you want to happen only in Neovide here
@@ -7,9 +25,9 @@ if vim.g.neovide then
   -- 没有空闲
   vim.g.neovide_no_idle = true
   -- 退出需要确认
-  vim.g.neovide_confirm_quit = true
+  vim.g.neovide_confirm_quit = false
   -- 是否全屏
-  vim.g.neovide_fullscreen = true
+  vim.g.neovide_fullscreen = false
   -- 记住以前窗口的大小
   vim.g.neovide_remember_window_size = true
   -- 使用super键位,比如<cmd>
@@ -27,7 +45,7 @@ if vim.g.neovide then
   -- 空闲刷新率
   vim.g.neovide_refresh_rate_idle = free_fps
   -- 透明度
-  vim.g.neovide_transparency = 0.9
+  vim.g.neovide_transparency = 0.85
   -- 未聚焦时光标轮廓宽度
   vim.g.neovide_cursor_unfocused_outline_width = 0.125
   -- 窗口模糊
