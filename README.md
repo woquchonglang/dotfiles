@@ -1,11 +1,3 @@
-<<<<<<< HEAD
-# This is my dotfile
-
-## nvim
-### lazyvim
-### neovide
-### zsh
-=======
 # welcome to my install.sh, this is the .sh about my Ubuntu22.4 config on bspwm, and the kernal is 6.8.0.40.
 
 sudo add-apt-repository ppa:zhangsongcui3371/fastfetch
@@ -109,4 +101,3 @@ sudo sysctl -w net.ipv6.conf.all.disable_ipv6=0
 sudo sysctl -w net.ipv6.conf.default.disable_ipv6=0
 sudo sysctl -w net.ipv6.conf.lo.disable_ipv6=0
 
->>>>>>> efc51af (add the dotfiles)
