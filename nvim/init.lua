@@ -1,5 +1,6 @@
 -- bootstrap lazy.nvim, LazyVim and your plugins
 require("config.lazy")
+<<<<<<< HEAD
 --
 -- require("glow").setup({
 --   style = "dracula",
@@ -18,6 +19,8 @@ require("dap").configurations.c = {
     showDevDebugOutput = false,
   }),
 }
+=======
+>>>>>>> efc51af (add the dotfiles)
 
 if vim.g.neovide then
   -- Put anything you want to happen only in Neovide here
@@ -25,9 +28,15 @@ if vim.g.neovide then
   -- 没有空闲
   vim.g.neovide_no_idle = true
   -- 退出需要确认
+<<<<<<< HEAD
   vim.g.neovide_confirm_quit = false
   -- 是否全屏
   vim.g.neovide_fullscreen = false
+=======
+  vim.g.neovide_confirm_quit = true
+  -- 是否全屏
+  vim.g.neovide_fullscreen = true
+>>>>>>> efc51af (add the dotfiles)
   -- 记住以前窗口的大小
   vim.g.neovide_remember_window_size = true
   -- 使用super键位,比如<cmd>
@@ -41,11 +50,19 @@ if vim.g.neovide then
   -- 开启轨道动画
   vim.g.neovide_cursor_vfx_mode = "railgun"
 
+<<<<<<< HEAD
   vim.g.neovide_refresh_rate = run_fps
   -- 空闲刷新率
   vim.g.neovide_refresh_rate_idle = free_fps
   -- 透明度
   vim.g.neovide_transparency = 0.85
+=======
+  vim.g.neovide_refresh_rate = 60
+  -- 空闲刷新率
+  vim.g.neovide_refresh_rate_idle = 60
+  -- 透明度
+  vim.g.neovide_transparency = 0.9
+>>>>>>> efc51af (add the dotfiles)
   -- 未聚焦时光标轮廓宽度
   vim.g.neovide_cursor_unfocused_outline_width = 0.125
   -- 窗口模糊

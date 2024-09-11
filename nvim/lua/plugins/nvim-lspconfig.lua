@@ -16,10 +16,16 @@ return {
             "meson.build",
             "meson_options.txt",
             "build.ninja"
+<<<<<<< HEAD
           )(fname) or require("lspconfig.util").root_pattern(
             "cmake-build-debug/compile_commands.json",
             "compile_flags.txt"
           )(fname) or require("lspconfig.util").find_git_ancestor(fname)
+=======
+          )(fname) or require("lspconfig.util").root_pattern("compile_commands.json", "compile_flags.txt")(
+            fname
+          ) or require("lspconfig.util").find_git_ancestor(fname)
+>>>>>>> efc51af (add the dotfiles)
         end,
         capabilities = {
           offsetEncoding = { "utf-8" },
@@ -33,7 +39,11 @@ return {
           "--function-arg-placeholders",
           "--fallback-style=llvm",
           "--compile-commands-dir=cmake-build-debug",
+<<<<<<< HEAD
           "--query-driver=/home/yjy/apps/arm-gnu-toochain/bin/arm-none-eabi-gcc",
+=======
+          "--query-driver=/opt/gcc-arm-none-eabi-10.3-2021.10-x86_64-linux/gcc-arm-none-eabi-10.3-2021.10/bin/arm-none-eabi-gcc",
+>>>>>>> efc51af (add the dotfiles)
         },
         init_options = {
           usePlaceholders = true,
