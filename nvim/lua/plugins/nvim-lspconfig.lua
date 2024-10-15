@@ -43,20 +43,18 @@ return {
       },
     },
 
+    -- snippet = {
+    --   expand = function(args)
+    --     vim.fn["UltiSnips#Anon"](args.body)
+    --   end,
+    -- },
     setup = {
       clangd = function(_, opts)
         local clangd_ext_opts = LazyVim.opts("clangd_extensions.nvim")
         require("clangd_extensions").setup(vim.tbl_deep_extend("force", clangd_ext_opts or {}, { server = opts }))
         return false
       end,
-      texlab = function(_, opts)
-        opts.treesitter = {
-          ensure_installed = { "latex" },
-          highlight = {
-            enable = true,
-          },
-        }
-      end,
+      ultisnips = function() end,
     },
   },
 }
