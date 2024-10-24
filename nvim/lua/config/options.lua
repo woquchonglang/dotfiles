@@ -1,3 +1,11 @@
+--[[
+Author: yjy 3253932102@qq.com
+Date: 2024-10-24 22:20:41
+LastEditors: yjy 3253932102@qq.com
+LastEditTime: 2024-10-24 22:24:26
+FilePath: /dotfiles/nvim/lua/config/options.lua
+Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+--]]
 -- Options are automatically loaded before lazy.nvim startup
 -- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
 -- Add any additional options here
@@ -15,11 +23,21 @@ vim.opt.tabstop = 4 -- Number of spaces tabs count for
 -- -- Set the mkdp_browserfunc option to use the Lua function
 -- vim.g.mkdp_browserfunc = ":OpenMarkdownPreview<CR>"
 
+-- 使用 vim.g 来定义全局函数
+function MarkdownPreview(url)
+  -- 调用系统命令打开浏览器，这里以 Firefox 为例
+  vim.fn.system("firefox --new-window " .. url)
+end
+
 vim.g.mkdp_auto_start = 1
 vim.g.mkdp_auto_close = 1
+vim.g.mkdp_auto_close = 1
 vim.g.mkdp_open_to_the_world = 1
--- vim.g.mkdp_browser = "/usr/bin/firefox"
--- vim.g.mkdp_port = "9999"
+vim.g.mkdp_images_path = "$HOME/Documents/obsidian_new/Attachment"
+vim.g.mkdp_browser = "/usr/bin/firefox"
+-- vim.g.mkdp_browserfunc = "MarkdownPreview"
+
+vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#6CC644" })
 
 if vim.g.neovide then
   -- Put anything you want to happen only in Neovide here
@@ -42,7 +60,13 @@ if vim.g.neovide then
   -- vim.g.neovide_touch_drag_timeout = 0.17
   -- 开启轨道动画
   vim.g.neovide_cursor_vfx_mode = "railgun"
-  vim.g.neovide_refresh_rate = 60
+  -- Animation Trail Size
+  vim.g.neovide_cursor_trail_size = 0.6
+
+  -- Animation Length
+  vim.g.neovide_cursor_animation_length = 0.006
+
+  vim.g.neovide_refresh_rate = 90
   -- 空闲刷新率
   vim.g.neovide_refresh_rate_idle = 60
   -- 透明度
