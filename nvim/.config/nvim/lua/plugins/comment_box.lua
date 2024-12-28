@@ -21,7 +21,7 @@ return {
       --   bottom_left = "",
       --   bottom_right = "*/",
       -- },
-      line_width = 90, -- width of the lines
+      line_width = 70, -- width of the lines
       lines = { -- symbols used to draw a line
         line = "─",
         line_start = "─",

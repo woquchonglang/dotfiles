@@ -39,8 +39,7 @@ keymap.set({ "n", "v" }, "<Leader>cm", "<Cmd>CBllbox14<CR>", opts)
 -- use it a lot:
 -- keymap({ "n", "v" }, "<Leader>cd", "<Cmd>CBd<CR>", opts)
 
--- local opts = { noremap = true, silent = true }
--- vim.api.nvim_set_keymap("n", "<Leader>nf", ":lua require('neogen').generate()<CR>", opts)
+vim.api.nvim_set_keymap("n", "nf", ":lua require('neogen').generate({type = 'func'})<CR>", opts)
 
 -- barbar
 -- local map = vim.api.nvim_set_keymap

@@ -38,16 +38,16 @@ return {
         },
         root_dir = function(fname)
           return require("lspconfig.util").root_pattern(
-            "Makefile",
-            "configure.ac",
-            "configure.in",
-            "config.h.in",
-            "meson.build",
-            "meson_options.txt",
-            "build.ninja"
+            -- "Makefile",
+            -- "configure.ac",
+            -- "configure.in",
+            -- "config.h.in",
+            -- "meson.build",
+            -- "meson_options.txt",
+            -- "build.ninja"
           )(fname) or require("lspconfig.util").root_pattern(
-            "cmake-build-debug/compile_commands.json",
-            "compile_flags.txt"
+            "build/compile_commands.json"
+            -- "compile_flags.txt"
           )(fname) or require("lspconfig.util").find_git_ancestor(fname)
         end,
         capabilities = {
@@ -61,8 +61,8 @@ return {
           "--completion-style=detailed",
           "--function-arg-placeholders",
           "--fallback-style=llvm",
-          "--compile-commands-dir=cmake-build-debug",
-          "--query-driver=/home/yjy/apps/arm-gnu-toochain/bin/arm-none-eabi-gcc",
+          "--compile-commands-dir=build",
+          "--query-driver=/home/yjy/apps/arm-gnu-toochain/bin/arm-none-eabi*",
           "--header-insertion=never",
         },
         init_options = {
