@@ -84,3 +84,6 @@ export PATH="$PATH:/home/yjy/.local/bin"
 eval $(thefuck --alias FUCK)
 
 eval $(thefuck --alias)
+
+#proxy
+proxy
