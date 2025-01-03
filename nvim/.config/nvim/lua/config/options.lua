@@ -57,7 +57,7 @@ if vim.g.neovide then
   -- 透明度
   vim.g.neovide_transparency = 0.8
   -- 未聚焦时光标轮廓宽度
-  vim.g.neovide_cursor_unfocused_outline_width = 0.125
+  vim.g.neovide_cursor_unfocused_outline_width = 0.15
   -- 窗口模糊
   vim.g.neovide_window_blurred = true
 
