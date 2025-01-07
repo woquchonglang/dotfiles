@@ -31,7 +31,8 @@ source $ZSH/oh-my-zsh.sh
 # Display Pokemon-colorscripts
 # Project page: https://gitlab.com/phoneybadger/pokemon-colorscripts#on-other-distros-and-macos
 
-pokemon-colorscripts --no-title -s -r
+# pokemon-colorscripts
+# pokemon-colorscripts --no-title -s -r
 
 # Set-up icons for files/folders in terminal
 alias ls='eza -a --icons'
@@ -52,7 +53,7 @@ setopt appendhistory
 proxy(){
 	export http_proxy="http://127.0.0.1:7890"
 	export https_proxy="http://127.0.0.1:7890"
-	echo "proxy on"
+	# echo "proxy on"
 }
 noproxy(){
 	unset http_proxy

@@ -55,7 +55,7 @@ if vim.g.neovide then
   -- 空闲刷新率
   vim.g.neovide_refresh_rate_idle = 90
   -- 透明度
-  vim.g.neovide_transparency = 0.8
+  vim.g.neovide_transparency = 0.7
   -- 未聚焦时光标轮廓宽度
   vim.g.neovide_cursor_unfocused_outline_width = 0.15
   -- 窗口模糊

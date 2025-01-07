@@ -13,3 +13,7 @@ vim.api.nvim_create_autocmd("FileType", {
     -- vim.bo.indentexpr  = ""
   end,
 })
+
+vim.opt.laststatus = 0
+vim.api.nvim_set_hl(0, "Statusline", { link = "Normal" })
+vim.api.nvim_set_hl(0, "StatuslineNC", { link = "Normal" })
