@@ -16,6 +16,9 @@ if vim.g.neovide then
   keymap.set({ "n", "v" }, "<C-0>", ":lua vim.g.neovide_scale_factor = 1<CR>")
 end
 
+-- dap
+keymap.set({ "n" }, "<Leader>da", ":lua require('dapui').elements.watches.add()<CR>")
+
 -- EmojiPicker
 vim.keymap.set("i", "<A-e>", "<cmd>EmojiPicker<cr>")
 
