@@ -1,7 +1,7 @@
 return {
   "Yagua/nebulous.nvim",
   opts = { --Put this lines inside your vimrc to set the colorscheme
-    variant = "night",
+    variant = "midnight", --Fullmoon, Midnight, Nova, Twilight, Night
     disable = {
       background = true,
       endOfBuffer = false,
@@ -9,9 +9,9 @@ return {
     },
     italic = {
       comments = true,
-      keywords = true,
+      keywords = false,
       functions = false,
-      variables = true,
+      variables = false,
     },
     custom_colors = { -- this table can hold any group of colors with their respective values
       LineNr = { fg = "#5BBBDA", bg = "NONE", style = "NONE" },
