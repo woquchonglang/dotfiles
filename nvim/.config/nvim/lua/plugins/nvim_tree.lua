@@ -1,5 +1,4 @@
 return {
-
   "nvim-neo-tree/neo-tree.nvim",
   cmd = "Neotree",
   keys = {
@@ -65,10 +64,13 @@ return {
       use_libuv_file_watcher = true,
     },
     window = {
+      adaptive_size = true,
+      width = 28,
+      -- preserve_window_proportions = true, -- 保持窗口比例
       mappings = {
         ["l"] = "open",
         ["h"] = "close_node",
-        ["<space>"] = "none",
+        ["<TAB>"] = "toggle_node",
         ["Y"] = {
           function(state)
             local node = state.tree:get_node()
