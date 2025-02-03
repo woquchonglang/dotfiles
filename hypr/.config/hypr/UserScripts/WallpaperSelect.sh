@@ -100,6 +100,12 @@ if pidof rofi >/dev/null; then
   sleep 1 # Allow some time for rofi to close
 fi
 
+# Check if autochange is already running
+if pidof -x "WallpaperAutoChange.sh" >/dev/null; then
+  pkill -f "WallpaperAutoChange.sh"
+  sleep 1 # Allow some time for the script to terminate
+fi
+
 main
 
 sleep 0.5
