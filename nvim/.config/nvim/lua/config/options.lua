@@ -27,7 +27,7 @@ vim.g.mkdp_browser = "/usr/bin/firefox"
 if vim.g.neovide then
   -- Put anything you want to happen only in Neovide here
   -- vim.o.guifont = "JetBrainsMono Nerd Font:h12"
-  vim.o.guifont = "Maple Mono:h19"
+  vim.o.guifont = "Maple Mono NF:h15"
   -- 没有空闲
   vim.g.neovide_no_idle = true
   -- 退出需要确认
@@ -55,7 +55,7 @@ if vim.g.neovide then
   -- 空闲刷新率
   vim.g.neovide_refresh_rate_idle = 90
   -- 透明度
-  vim.g.neovide_transparency = 0.7
+  vim.g.neovide_transparency = 0.8
   -- 未聚焦时光标轮廓宽度
   vim.g.neovide_cursor_unfocused_outline_width = 0.15
   -- 窗口模糊
