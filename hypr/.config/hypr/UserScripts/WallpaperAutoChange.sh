@@ -11,7 +11,7 @@ wallust_refresh=$HOME/.config/hypr/scripts/RefreshNoWaybar.sh
 
 wallpaper_dir="$HOME/Pictures/wallpapers/gruvbox/"
 
-focused_monitor=$(hyprctl monitors | awk '/^Monitor/{name=$2} /focused: yes/{print name}')
+monitors=$(hyprctl monitors | awk '/^Monitor/{print $2}')
 
 # Edit below to control the images transition
 export SWWW_TRANSITION_FPS=60
@@ -28,7 +28,9 @@ while true; do
     sort -n | cut -d':' -f2- |
     while read -r img; do
       echo "Setting wallpaper: $img"
-      swww img -o "$focused_monitor" "$img"
+      for monitor in $monitors; do
+        swww query || swww-daemon --format xrgb && swww img -o "$monitor" "$img"
+      done
       $wallust_refresh
       sleep $INTERVAL
     done
