@@ -79,7 +79,7 @@ return {
           end,
           desc = "Copy Path to Clipboard",
         },
-        ["O"] = {
+        ["o"] = {
           function(state)
             require("lazy.util").open(state.tree:get_node().path, { system = true })
           end,
