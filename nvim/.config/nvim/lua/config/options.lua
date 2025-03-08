@@ -7,7 +7,7 @@ vim.o.fileencodings = "UTF-8,gb2312,gb18030,gbk,ucs,cp936,latin1"
 -- (utf - 8, gb2312, gb18030, gbk, ucs - bom, cp936, latin1)
 
 -- 使用 vim.g 来定义全局函数
--- vim.g.font = "Maple Mono:h30"
+vim.g.font = "Maple Mono NF CN:h15:i"
 
 -- copilot
 vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#6CC644" })
@@ -27,7 +27,7 @@ vim.g.mkdp_browser = "/usr/bin/firefox"
 if vim.g.neovide then
   -- Put anything you want to happen only in Neovide here
   -- vim.o.guifont = "JetBrainsMono Nerd Font:h12"
-  vim.o.guifont = "Maple Mono NF:h15"
+  vim.o.guifont = "Maple Mono NF CN:h15:i"
   -- 没有空闲
   vim.g.neovide_no_idle = true
   -- 退出需要确认

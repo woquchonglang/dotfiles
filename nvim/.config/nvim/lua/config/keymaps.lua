@@ -7,7 +7,13 @@ local opts = { noremap = true, silent = true }
 
 keymap.set("i", "jk", "<ESC>")
 keymap.set("n", "<Tab>", "za")
-keymap.set("n", "<C-S-c>", ":CopilotChatOpen<CR>")
+
+-- avante
+keymap.set({ "n", "v" }, "<Leader>aa", ":CopilotChatOpen<CR>")
+
+-- codecompanion
+keymap.set({ "n", "v" }, "<Leader>cc", ":CodeCompanionChat<CR>")
+keymap.set({ "n", "v" }, "<Leader>ca", ":CodeCompanionAction<CR>")
 
 -- neovide
 if vim.g.neovide then

@@ -9,9 +9,9 @@ require("config.lazy")
 
 vim.o.background = "dark"
 -- vim.o.background = "light"
--- vim.cmd([[colorscheme gruvbox]])
+vim.cmd([[colorscheme gruvbox]])
 -- vim.cmd([[colorscheme visual_studio_code]])
-vim.cmd([[colorscheme nebulous]])
+-- vim.cmd([[colorscheme nebulous]])
 -- vim.cmd([[colorscheme evergarden]])
 -- vim.cmd("colorscheme oxocarbon")
 -- vim.cmd("colorscheme abyss")

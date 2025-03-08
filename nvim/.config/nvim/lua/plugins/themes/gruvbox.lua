@@ -2,16 +2,18 @@ return {
   "ellisonleao/gruvbox.nvim",
   priority = 1000,
   config = true,
-  terminal_colors = true, -- add neovim terminal colors
+  terminal_colors = false, -- add neovim terminal colors
   undercurl = true,
   underline = true,
-  bold = true,
+  bold = false,
   italic = {
     strings = true,
     emphasis = true,
     comments = true,
     operators = false,
     folds = true,
+    functions = true,
+    macros = true,
   },
   strikethrough = true,
   invert_selection = false,
