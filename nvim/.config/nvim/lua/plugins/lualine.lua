@@ -1,265 +1,72 @@
+-- return {
+--   "nvim-lualine/lualine.nvim",
+--   enabled = false,
+-- }
+--
+-- Bubbles config for lualine
+-- Author: lokesh-krishna
+-- MIT license, see LICENSE for more details.
+
+-- stylua: ignore
+local colors = {
+  blue   = '#80a0ff',
+  cyan   = '#79dac8',
+  black  = '#080808',
+  white  = '#c6c6c6',
+  red    = '#ff5189',
+  violet = '#d183e8',
+  grey   = '#303030',
+}
+
+local bubbles_theme = {
+  normal = {
+    a = { fg = colors.black, bg = colors.violet },
+    b = { fg = colors.white, bg = colors.grey },
+    c = { fg = colors.white },
+  },
+
+  insert = { a = { fg = colors.black, bg = colors.blue } },
+  visual = { a = { fg = colors.black, bg = colors.cyan } },
+  replace = { a = { fg = colors.black, bg = colors.red } },
+
+  inactive = {
+    a = { fg = colors.white, bg = colors.black },
+    b = { fg = colors.white, bg = colors.black },
+    c = { fg = colors.white },
+  },
+}
+
 return {
   "nvim-lualine/lualine.nvim",
-  enabled = false,
+  dependencies = { "nvim-tree/nvim-web-devicons" },
+  event = "VeryLazy",
+  opts = {
+    options = {
+      theme = bubbles_theme,
+      component_separators = "",
+      section_separators = { left = "", right = "" },
+    },
+    sections = {
+      lualine_a = { { "mode", separator = { left = "" }, right_padding = 2 } },
+      lualine_b = { "filename" },
+      lualine_c = {
+        "%=", --[[ add your center components here in place of this comment ]]
+      },
+      lualine_x = {},
+      lualine_y = { "filetype", "progress" },
+      lualine_z = {
+        { "branch", left_padding = 0 },
+      },
+    },
+    inactive_sections = {
+      lualine_a = { "filename" },
+      lualine_b = {},
+      lualine_c = {},
+      lualine_x = {},
+      lualine_y = {},
+      lualine_z = { "branch" },
+    },
+    tabline = {},
+    extensions = {},
+  },
 }
--- return {
---   "nvim-lualine/lualine.nvim",
---   require("lualine").hide(),
--- }
--- return {
---   "nvim-lualine/lualine.nvim",
---   event = "VeryLazy",
---   init = function()
---     vim.g.lualine_laststatus = vim.o.laststatus
---     if vim.fn.argc(-1) > 0 then
---       -- set an empty statusline till lualine loads
---       vim.o.statusline = " "
---     else
---       -- hide the statusline on the starter page
---       vim.o.laststatus = 0
---     end
---   end,
---   opts = function()
---     -- PERF: we don't need this lualine require madness 🤷
---     local lualine_require = require("lualine_require")
---     lualine_require.require = require
---
---     local icons = LazyVim.config.icons
---
---     vim.o.laststatus = vim.g.lualine_laststatus
---
---     local opts = {
---       options = {
---         theme = "dracula",
---         globalstatus = vim.o.laststatus == 3,
---         disabled_filetypes = { statusline = { "dashboard", "alpha", "ministarter", "snacks_dashboard",} },
---       },
---       sections = {
---         lualine_a = { "mode" },
---         lualine_b = { "branch" },
---
---         lualine_c = {
---           -- LazyVim.lualine.root_dir(),
---           {
---             "diagnostics",
---             symbols = {
---               error = icons.diagnostics.Error,
---               warn = icons.diagnostics.Warn,
---               info = icons.diagnostics.Info,
---               hint = icons.diagnostics.Hint,
---             },
---           },
---           -- { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
---           -- { LazyVim.lualine.pretty_path() },
---         },
---         -- lualine_x = {
---         --   Snacks.profiler.status(),
---         --   -- stylua: ignore
---         --   {
---         --     function() return require("noice").api.status.command.get() end,
---         --     cond = function() return package.loaded["noice"] and require("noice").api.status.command.has() end,
---         --     color = function() return { fg = Snacks.util.color("Statement") } end,
---         --   },
---         --   -- stylua: ignore
---         --   {
---         --     function() return require("noice").api.status.mode.get() end,
---         --     cond = function() return package.loaded["noice"] and require("noice").api.status.mode.has() end,
---         --     color = function() return { fg = Snacks.util.color("Constant") } end,
---         --   },
---         --   -- stylua: ignore
---         --   {
---         --     function() return "  " .. require("dap").status() end,
---         --     cond = function() return package.loaded["dap"] and require("dap").status() ~= "" end,
---         --     color = function() return { fg = Snacks.util.color("Debug") } end,
---         --   },
---         --   -- stylua: ignore
---         --   {
---         --     require("lazy.status").updates,
---         --     cond = require("lazy.status").has_updates,
---         --     color = function() return { fg = Snacks.util.color("Special") } end,
---         --   },
---         --   {
---         --     "diff",
---         --     symbols = {
---         --       added = icons.git.added,
---         --       modified = icons.git.modified,
---         --       removed = icons.git.removed,
---         --     },
---         --     source = function()
---         --       local gitsigns = vim.b.gitsigns_status_dict
---         --       if gitsigns then
---         --         return {
---         --           added = gitsigns.added,
---         --           modified = gitsigns.changed,
---         --           removed = gitsigns.removed,
---         --         }
---         --       end
---         --     end,
---         --   },
---         -- },
---         -- lualine_y = {
---         --   { "progress", separator = " ", padding = { left = 1, right = 0 } },
---         --   { "location", padding = { left = 0, right = 1 } },
---         -- },
---         -- lualine_z = {
---         --   function()
---         --     return " " .. os.date("%R")
---         --   end,
---         -- },
---       },
---       extensions = { "neo-tree", "lazy", "fzf" },
---     }
---
---     -- do not add trouble symbols if aerial is enabled
---     -- And allow it to be overriden for some buffer types (see autocmds)
---     if vim.g.trouble_lualine and LazyVim.has("trouble.nvim") then
---       local trouble = require("trouble")
---       local symbols = trouble.statusline({
---         mode = "symbols",
---         groups = {},
---         title = false,
---         filter = { range = true },
---         format = "{kind_icon}{symbol.name:Normal}",
---         hl_group = "lualine_c_normal",
---       })
---       table.insert(opts.sections.lualine_c, {
---         symbols and symbols.get,
---         cond = function()
---           return vim.b.trouble_lualine ~= false and symbols.has()
---         end,
---       })
---     end
---     return opts
---   end,
--- }
-
--- local colors = {
---   red = "#ca1243",
---   grey = "#a0a1a7",
---   black = "#383a42",
---   white = "#f3f3f3",
---   light_green = "#83a598",
---   orange = "#fe8019",
---   green = "#8ec07c",
--- }
---
--- local theme = {
---   normal = {
---     a = { fg = colors.white, bg = colors.black },
---     b = { fg = colors.white, bg = colors.grey },
---     c = { fg = colors.black, bg = colors.white },
---     z = { fg = colors.white, bg = colors.black },
---   },
---   insert = { a = { fg = colors.black, bg = colors.light_green } },
---   visual = { a = { fg = colors.black, bg = colors.orange } },
---   replace = { a = { fg = colors.black, bg = colors.green } },
--- }
---
--- local empty = require("lualine.component"):extend()
--- function empty:draw(default_highlight)
---   self.status = ""
---   self.applied_separator = ""
---   self:apply_highlights(default_highlight)
---   self:apply_section_separators()
---   return self.status
--- end
---
--- -- Put proper separators and gaps between components in sections
--- local function process_sections(sections)
---   for name, section in pairs(sections) do
---     local left = name:sub(9, 10) < "x"
---     for pos = 1, name ~= "lualine_z" and #section or #section - 1 do
---       table.insert(section, pos * 2, { empty, color = { fg = colors.white, bg = colors.white } })
---     end
---     for id, comp in ipairs(section) do
---       if type(comp) ~= "table" then
---         comp = { comp }
---         section[id] = comp
---       end
---       comp.separator = left and { right = "" } or { left = "" }
---     end
---   end
---   return sections
--- end
---
--- local function search_result()
---   if vim.v.hlsearch == 0 then
---     return ""
---   end
---   local last_search = vim.fn.getreg("/")
---   if not last_search or last_search == "" then
---     return ""
---   end
---   local searchcount = vim.fn.searchcount({ maxcount = 9999 })
---   return last_search .. "(" .. searchcount.current .. "/" .. searchcount.total .. ")"
--- end
---
--- local function modified()
---   if vim.bo.modified then
---     return "+"
---   elseif vim.bo.modifiable == false or vim.bo.readonly == true then
---     return "-"
---   end
---   return ""
--- end
---
--- return {
---
---   "nvim-lualine/lualine.nvim",
---   dependencies = { "nvim-tree/nvim-web-devicons" },
---
---   require("lualine").setup({
---     options = {
---       theme = theme,
---       component_separators = "",
---       section_separators = { left = "", right = "" },
---     },
---     sections = process_sections({
---       lualine_a = { "mode" },
---       lualine_b = {
---         "branch",
---         "diff",
---         {
---           "diagnostics",
---           source = { "nvim" },
---           sections = { "error" },
---           diagnostics_color = { error = { bg = colors.red, fg = colors.white } },
---         },
---         {
---           "diagnostics",
---           source = { "nvim" },
---           sections = { "warn" },
---           diagnostics_color = { warn = { bg = colors.orange, fg = colors.white } },
---         },
---         { "filename", file_status = false, path = 1 },
---         { modified, color = { bg = colors.red } },
---         {
---           "%w",
---           cond = function()
---             return vim.wo.previewwindow
---           end,
---         },
---         {
---           "%r",
---           cond = function()
---             return vim.bo.readonly
---           end,
---         },
---         {
---           "%q",
---           cond = function()
---             return vim.bo.buftype == "quickfix"
---           end,
---         },
---       },
---       lualine_c = {},
---       lualine_x = {},
---       lualine_y = { search_result, "filetype" },
---       lualine_z = { "%l:%c", "%p%%/%L" },
---     }),
---     inactive_sections = {
---       lualine_c = { "%f %y %m" },
---       lualine_x = {},
---     },
---   }),
--- }
