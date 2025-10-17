@@ -15,6 +15,10 @@ return {
   },
   opts = {
     options = {
+      indicator = {
+        style = "underline",
+      },
+      separator_style = "slope", -- Change this to "slope", "thick", "thin", or { 'any', 'any' } as needed
       -- stylua: ignore
       close_command = function(n) Snacks.bufdelete(n) end,
       -- stylua: ignore
