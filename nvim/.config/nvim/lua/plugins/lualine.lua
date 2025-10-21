@@ -22,7 +22,7 @@ local bubbles_theme = {
   normal = {
     a = { fg = colors.black, bg = colors.violet },
     b = { fg = colors.white, bg = colors.grey },
-    c = { fg = colors.white },
+    c = { fg = colors.black },
   },
 
   insert = { a = { fg = colors.black, bg = colors.blue } },
@@ -37,36 +37,36 @@ local bubbles_theme = {
 }
 
 return {
-  "nvim-lualine/lualine.nvim",
-  dependencies = { "nvim-tree/nvim-web-devicons" },
-  event = "VeryLazy",
-  opts = {
-    options = {
-      theme = bubbles_theme,
-      component_separators = "",
-      section_separators = { left = "", right = "" },
-    },
-    sections = {
-      lualine_a = { { "mode", separator = { left = "" }, right_padding = 2 } },
-      lualine_b = { "filename" },
-      lualine_c = {
-        "%=", --[[ add your center components here in place of this comment ]]
-      },
-      lualine_x = {},
-      lualine_y = { "filetype", "progress" },
-      lualine_z = {
-        { "branch", left_padding = 0 },
-      },
-    },
-    inactive_sections = {
-      lualine_a = { "filename" },
-      lualine_b = {},
-      lualine_c = {},
-      lualine_x = {},
-      lualine_y = {},
-      lualine_z = { "branch" },
-    },
-    tabline = {},
-    extensions = {},
-  },
+  -- "nvim-lualine/lualine.nvim",
+  -- dependencies = { "nvim-tree/nvim-web-devicons" },
+  -- event = "VeryLazy",
+  -- opts = {
+  --   options = {
+  --     theme = bubbles_theme,
+  --     component_separators = "",
+  --     section_separators = { left = "", right = "" },
+  --   },
+  --   sections = {
+  --     lualine_a = { { "mode", separator = { left = "" }, right_padding = 2 } },
+  --     lualine_b = { "filename" },
+  --     lualine_c = {
+  --       "%=", --[[ add your center components here in place of this comment ]]
+  --     },
+  --     lualine_x = {},
+  --     lualine_y = { "filetype", "progress" },
+  --     lualine_z = {
+  --       { "branch", left_padding = 0 },
+  --     },
+  --   },
+  --   inactive_sections = {
+  --     lualine_a = { "filename" },
+  --     lualine_b = {},
+  --     lualine_c = {},
+  --     lualine_x = {},
+  --     lualine_y = {},
+  --     lualine_z = { "branch" },
+  --   },
+  --   tabline = {},
+  --   extensions = {},
+  -- },
 }

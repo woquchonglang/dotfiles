@@ -32,6 +32,10 @@ return {
   opts = {
     servers = {
       -- Ensure mason installs the server
+      cmake = {
+        cmd = { "cmake-language-server" },
+        filetypes = { "cmake" },
+      },
       clangd = {
         keys = {
           { "<leader>ch", "<cmd>ClangdSwitchSourceHeader<cr>", desc = "Switch Source/Header (C/C++)" },
@@ -57,13 +61,20 @@ return {
           "clangd",
           "--background-index",
           "--clang-tidy",
-          "--header-insertion=iwyu",
-          "--completion-style=detailed",
-          "--function-arg-placeholders",
-          "--fallback-style=llvm",
+          "--pretty",
+          "--all-scopes-completion",
+          "--header-insertion=iwyu", -- stdlib / never / iwyu
+          "--completion-style=bundled", --更详细的补全内容
+          "--function-arg-placeholders=false",
+          "--fallback-style=llvm", --找不到 .clang-format 文件时，默认应用的 clang-format 风格
           "--compile-commands-dir=build",
-          "--query-driver=/home/yjy/apps/arm-gnu-toochain/bin/arm-none-eabi*",
-          "--header-insertion=never",
+          "--all-scopes-completion", -- 全局补全
+          "--pch-storage=memory", --预编译头文件存储在内存中以加快速度
+          "--query-driver=/home/yjy/apps/arm-gnu-toolchain/bin/arm-none-eabi*",
+          -- "--query-driver=/home/yjy/apps/ATfE-20.1.0-Linux-x86_64/bin/*",
+          -- "--resource-dir=/usr/lib/llvm-14/lib/clang/14.0.0",
+          -- "--include-directory=/usr/include/c++/11",
+          -- "--include-directory=/usr/include",
         },
         init_options = {
           usePlaceholders = true,
@@ -71,6 +82,7 @@ return {
           clangdFileStatus = true,
           InlayHints = false,
         },
+        filetypes = { "c", "cpp", "h", "hpp" }, -- 只处理这些文件类型
       },
     },
 

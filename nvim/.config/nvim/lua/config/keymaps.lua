@@ -8,8 +8,11 @@ local opts = { noremap = true, silent = true }
 keymap.set("i", "jk", "<ESC>")
 keymap.set("n", "<Tab>", "za")
 
--- avante
+-- copilot
 keymap.set({ "n", "v" }, "<Leader>aa", ":CopilotChatOpen<CR>")
+keymap.set({ "n", "v" }, "<Leader>ap", ":CopilotChatprompt<CR>")
+-- vim.g.copilot_no_tab_map = true
+-- vim.keymap.set("i", "<S-Tab>", 'copilot#Accept("\\<S-Tab>")', { expr = true, replace_keycodes = false })
 
 -- codecompanion
 keymap.set({ "n", "v" }, "<Leader>cc", ":CodeCompanionChat<CR>")
