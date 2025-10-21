@@ -3,7 +3,7 @@
 # This script for selecting wallpapers (SUPER W)
 
 # WALLPAPERS PATH
-wallDIR="$HOME/Pictures/wallpapers/gruvbox/"
+wallDIR="$HOME/Pictures/wallpapers/"
 SCRIPTSDIR="$HOME/.config/hypr/scripts"
 
 # variables
@@ -27,7 +27,7 @@ RANDOM_PIC="${PICS[$((RANDOM % ${#PICS[@]}))]}"
 RANDOM_PIC_NAME=". random"
 
 # Rofi command
-rofi_command="rofi -i -show -dmenu -config ~/.config/rofi/config-wallpaper.rasi"
+rofi_command="rofi -i -show -dmenu -config ~/.config/rofi/launchers/type-2/style-10.rasi"
 
 # Sorting Wallpapers
 menu() {

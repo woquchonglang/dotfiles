@@ -9,7 +9,7 @@
 
 wallust_refresh=$HOME/.config/hypr/scripts/RefreshNoWaybar.sh
 
-wallpaper_dir="$HOME/Pictures/wallpapers/gruvbox/"
+wallpaper_dir="$HOME/Pictures/wallpapers"
 
 monitors=$(hyprctl monitors | awk '/^Monitor/{print $2}')
 
