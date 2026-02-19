@@ -69,6 +69,7 @@ main() {
   # Random choice case
   if [[ "$choice" == "$RANDOM_PIC_NAME" ]]; then
     swww img -o "$focused_monitor" "$RANDOM_PIC" $SWWW_PARAMS
+    matugen image "$RANDOM_PIC" --source-color-index 0
     sleep 0.5
     "$SCRIPTSDIR/WallustSwww.sh"
     sleep 0.2
@@ -88,6 +89,7 @@ main() {
 
   if [[ $pic_index -ne -1 ]]; then
     swww img -o "$focused_monitor" "${PICS[$pic_index]}" $SWWW_PARAMS
+    matugen image "${PICS[$pic_index]}" --source-color-index 0
   else
     echo "Image not found."
     exit 1
