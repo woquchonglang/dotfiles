@@ -23,6 +23,7 @@ window#waybar {
   color: @foreground;
   transition-property: background-color;
   transition-duration: 0.5s;
+	border-radius: 10px;
 }
 
 #taskbar button,
@@ -152,12 +153,12 @@ window#waybar {
 #backlight-slider trough {
 	min-width: 80px;  
 	min-height: 10px; 
-	border-radius: 5px;
+	border-radius: 10px;
 	background-color: @dim;
 }
 	
 #backlight-slider highlight {
 	min-width: 10px; 
-	border-radius: 5px;
+	border-radius: 10px;
 	background-color: @green;
 }

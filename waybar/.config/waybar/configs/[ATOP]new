@@ -3,11 +3,14 @@
 "include": "~/.config/waybar/modules",
 "layer": "top",
 "position": "top",
-"width": 850,
-"margin-top": 4,
+"width": 1400,
+"fixed-center": true,
+"margin-top": 2,
 
 "modules-left": [
-	"hyprland/workspaces#roman",
+ "hyprland/workspaces#pacman",
+	"custom/separator#dot-line",
+	"custom/cava_mviz",
 	],
 
 "modules-center": [
@@ -15,13 +18,12 @@
 	],
 
 "modules-right": [
-	"custom/menu", 
-	"tray",
 	"network", 
 	"bluetooth", 
 	"backlight", 
 	"pulseaudio", 
 	"battery", 
+	"custom/lock",
 	"custom/power"
   ],
 }

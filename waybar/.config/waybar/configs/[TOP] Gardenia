@@ -22,13 +22,13 @@
 "modules-left": [
 	"clock#5", 
 	"mpris", 
-	"tray", 
-	"custom/swaync"
+	"custom/cava_mviz",
 	],
 	  
-"modules-center": ["hyprland/workspaces#kanji"], 
+"modules-center": ["hyprland/workspaces#pacman"], 
 	
 "modules-right": [
+	"tray", 
 	"pulseaudio#1",
 	"backlight#2", 
 	"battery"
