@@ -54,6 +54,7 @@ noproxy(){
 export PATH="$PATH:/home/yjy/Documents/apps/nvim/bin"
 export PATH="$PATH:/home/yjy/apps/clangd/bin"
 export PATH="$PATH:/home/yjy/apps/arm-gnu-toochain/bin"
+export PATH="$PATH:/home/yjy/apps/FlameGraph"
 export XDG_CONFIG_HOME="$HOME/.config"
 
 ros2_on(){
@@ -75,3 +76,6 @@ eval $(thefuck --alias)
 
 #proxy
 proxy
+
+# man
+export MANPAGER='nvim +Man!'
